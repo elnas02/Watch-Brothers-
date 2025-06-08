@@ -1,1 +1,112 @@
-index. html.
+index. html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janis VYG Fan Card Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d62d20; /* Latvian red */
+        }
+        .fan-card {
+            border: 2px solid #d62d20;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background: #fff9f9;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        input, button {
+            padding: 10px;
+            width: 80%;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #d62d20;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #b8251a;
+        }
+        .hidden {
+            display: none;
+        }
+        #fanCardResult {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Janis VYG Fan Card Generator</h1>
+        <p>Create your personalized fan card to show your support for Janis VYG!</p>
+        
+        <div class="fan-card">
+            <div id="fanCardForm">
+                <div class="form-group">
+                    <input type="text" id="fanName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="fanEmail" placeholder="Your Email (optional)">
+                </div>
+                <button onclick="generateFanCard()">Generate Fan Card</button>
+            </div>
+            
+            <div id="fanCardResult" class="hidden">
+                <h2>Your Janis VYG Fan Card</h2>
+                <p><strong>Fan Name:</strong> <span id="displayName"></span></p>
+                <p><strong>Fan ID:</strong> <span id="fanId"></span></p>
+                <p>🎶 Official Supporter of Janis VYG 🎶</p>
+                <button onclick="printCard()">Print Card</button>
+                <button onclick="resetForm()">Create Another</button>
+            </div>
+        </div>
+        
+        <p>Share your fan card on social media with <strong>#JanisVYGFan</strong>!</p>
+    </div>
+
+    <script>
+        function generateFanCard() {
+            const fanName = document.getElementById('fanName').value;
+            if (!fanName) {
+                alert("Please enter your name!");
+                return;
+            }
+            
+            document.getElementById('displayName').textContent = fanName;
+            document.getElementById('fanId').textContent = 'VYG-' + Math.floor(Math.random() * 10000);
+            
+            document.getElementById('fanCardForm').classList.add('hidden');
+            document.getElementById('fanCardResult').classList.remove('hidden');
+        }
+        
+        function printCard() {
+            window.print();
+        }
+        
+        function resetForm() {
+            document.getElementById('fanCardForm').classList.remove('hidden');
+            document.getElementById('fanCardResult').
